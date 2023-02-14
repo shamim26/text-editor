@@ -4,8 +4,28 @@ function textArea() {
   return getTextArea;
 }
 
+// getting button element
+function btnElement(id) {
+  const getBtnId = document.getElementById(id);
+  return getBtnId;
+}
+
+// set border to selected button
+function setBorder(btnID, styleProperty, styleValue) {
+  const textStyle = textArea();
+  if (
+    textStyle.style[styleProperty] === styleValue ||
+    textStyle.style[styleProperty] === ""
+  ) {
+    btnElement(btnID).style.border = "1px solid grey";
+  } else {
+    btnElement(btnID).style.border = "none";
+  }
+}
+
 // make bold
 document.getElementById("btn-bold").addEventListener("click", function () {
+  setBorder("btn-bold", "fontWeight", "normal");
   const makeBold = textArea();
   if (
     makeBold.style.fontWeight === "normal" ||
@@ -19,6 +39,7 @@ document.getElementById("btn-bold").addEventListener("click", function () {
 
 // make italic
 document.getElementById("btn-italic").addEventListener("click", function () {
+  setBorder("btn-italic", "fontStyle", "normal");
   const makeItalic = textArea();
   if (
     makeItalic.style.fontStyle === "normal" ||
@@ -32,6 +53,7 @@ document.getElementById("btn-italic").addEventListener("click", function () {
 
 // underline
 document.getElementById("btn-underline").addEventListener("click", function () {
+  setBorder("btn-underline", "textDecoration", "none");
   const putUnderline = textArea();
   if (putUnderline.style.textDecoration === "underline") {
     putUnderline.style.textDecoration = "none";
@@ -71,7 +93,8 @@ document.getElementById("font-size").addEventListener("input", function () {
 });
 
 //text uppercase
-document.getElementById("btn-upperCase").addEventListener("click", function () {
+document.getElementById("btn-uppercase").addEventListener("click", function () {
+  setBorder("btn-uppercase", "textTransform", "initial");
   const changeCase = textArea();
   if (changeCase.style.textTransform === "uppercase") {
     changeCase.style.textTransform = "initial";
@@ -81,8 +104,8 @@ document.getElementById("btn-upperCase").addEventListener("click", function () {
 });
 
 // text lower case
-
-document.getElementById("btn-lowerCase").addEventListener("click", function () {
+document.getElementById("btn-lowercase").addEventListener("click", function () {
+  setBorder("btn-lowercase", "textTransform", "initial");
   const changeCase = textArea();
   if (changeCase.style.textTransform === "lowercase") {
     changeCase.style.textTransform = "initial";
@@ -90,3 +113,12 @@ document.getElementById("btn-lowerCase").addEventListener("click", function () {
     changeCase.style.textTransform = "lowercase";
   }
 });
+
+// text color
+document
+  .getElementById("input-color")
+  .addEventListener("input", function (evt) {
+    const colorValue = evt.target.value;
+    const colorChange = textArea();
+    colorChange.style.color = colorValue;
+  });
