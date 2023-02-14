@@ -13,14 +13,14 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="container mx-auto w-3/4">
-    <section class="bg-blue-300 rounded mt-10 px-32 pt-5 pb-8">
+  <body class="md:container mx-auto md:w-3/4">
+    <section class="bg-blue-300 md:rounded mt-10 md:px-32 px-3 pt-5 pb-8">
       <h1 class="text-2xl text-center font-semibold font-mono mb-5">
         Text Editor
       </h1>
       <div class="bg-blue-200 border-2 border-black">
         <div
-          class="flex justify-around items-center border-b-2 border-black my-4 mx-3"
+          class="flex justify-around flex-wrap md:flex-nowrap items-center border-b-2 border-black my-4 mx-3"
         >
           <!-- text buttons -->
           <div class="space-x-3">
@@ -87,7 +87,7 @@
             name=""
             rows="12"
             id="textarea"
-            class="block h-72 w-full mx-auto"
+            class="block md:h-72 h-52 w-full mx-auto"
           ></textarea>
         </div>
       </div>
